@@ -36,22 +36,23 @@ class LoginState extends State {
             title: const Text(
               'Café Miau',
               style: TextStyle(fontSize: 40, fontStyle: FontStyle.italic),
-            )),
-        drawer: Drawer(
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                const DrawerHeader(child: Text("Header")),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Home()));
-                    },
-                    child: const Text('Home'))
-              ],
             ),
+            centerTitle: true,
+            elevation: 50),
+        drawer: Drawer(
+          child: ListView(
+            children: <Widget>[
+              const UserAccountsDrawerHeader(
+                  accountName: Text('Lucas Silva'),
+                  accountEmail: Text('Lucas.Silva@gmail.com')),
+              ListTile(
+                leading: const Icon(Icons.home, size: 15),
+                title: const Text('Página Inicial'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              )
+            ],
           ),
         ),
         body: Center(
