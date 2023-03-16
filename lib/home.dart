@@ -12,6 +12,6 @@ class Home extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark(),
-        home: const Home());
+        home: const Login());
   }
 }

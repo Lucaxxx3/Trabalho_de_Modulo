@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark(),
-        home: const Home());
+        home: const Login());
   }
 }
 
@@ -31,6 +31,7 @@ class LoginState extends State {
   @override
   build(context) {
     return Scaffold(
+        backgroundColor: Color.fromARGB(255, 214, 240, 153),
         appBar: AppBar(
             backgroundColor: const Color.fromARGB(255, 229, 99, 255),
             title: const Text(
@@ -38,7 +39,7 @@ class LoginState extends State {
               style: TextStyle(fontSize: 40, fontStyle: FontStyle.italic),
             ),
             centerTitle: true,
-            elevation: 50),
+            elevation: 10),
         drawer: Drawer(
           child: ListView(
             children: <Widget>[
@@ -69,21 +70,33 @@ class LoginState extends State {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         TextFormField(
-                          validator: (email) {
-                            if (email == null || email.isEmpty) {
-                              return 'Digite um email válido';
-                            }
-                            return null;
-                          },
-                          controller: _emailController,
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: const InputDecoration(
-                              labelText: 'Email',
-                              hintText: 'Digite seu email',
-                              border: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(40)))),
-                        ),
+                            validator: (email) {
+                              if (email == null || email.isEmpty) {
+                                return 'Digite um email válido';
+                              }
+                              return null;
+                            },
+                            controller: _emailController,
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: const InputDecoration(
+                                labelText: 'Email',
+                                labelStyle: TextStyle(color: Colors.black),
+                                hintText: 'Digite seu email',
+                                hintStyle: TextStyle(color: Colors.black),
+                                focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color:
+                                            Color.fromARGB(255, 229, 99, 255),
+                                        width: 3),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(40))),
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color:
+                                            Color.fromARGB(255, 229, 99, 255),
+                                        width: 3),
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(40))))),
                         const SizedBox(height: 10),
                         TextFormField(
                           validator: (senha) {
@@ -95,17 +108,35 @@ class LoginState extends State {
                           controller: _senhaController,
                           obscureText: true,
                           decoration: const InputDecoration(
-                              labelText: 'Senha',
-                              hintText: 'Digite Sua Senha',
-                              border: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(40)))),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 229, 99, 255),
+                                    width: 3),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(40))),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 229, 99, 255),
+                                    width: 3),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(40))),
+                            labelText: 'Senha',
+                            labelStyle: TextStyle(color: Colors.black),
+                            hintText: 'Digite Sua Senha',
+                            hintStyle: TextStyle(color: Colors.black),
+                          ),
                         ),
                         const SizedBox(height: 15),
                         ElevatedButton(
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {}
                             },
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    const Color.fromARGB(255, 229, 99, 255),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(40)),
+                                textStyle: const TextStyle(fontSize: 15)),
                             child: const Text('Conectar')),
                         const SizedBox(
                           height: 15,
@@ -115,9 +146,15 @@ class LoginState extends State {
                               Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const Cadastro()));
+                                      builder: (context) => const Account()));
                             },
-                            child: const Text('Cadastro'))
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    const Color.fromARGB(255, 229, 99, 255),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(40)),
+                                textStyle: const TextStyle(fontSize: 15)),
+                            child: const Text('Cadastrar'))
                       ]),
                 )),
           ),
