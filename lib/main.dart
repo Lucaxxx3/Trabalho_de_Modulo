@@ -1,7 +1,7 @@
+import 'package:cafe_miau/pagamento.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import '../home.dart';
 import '../cadastro.dart';
 
 void main() => runApp((const MyApp()));
@@ -31,7 +31,7 @@ class LoginState extends State {
   @override
   build(context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 214, 240, 153),
+        backgroundColor: const Color.fromARGB(255, 236, 235, 148),
         appBar: AppBar(
             backgroundColor: const Color.fromARGB(255, 229, 99, 255),
             title: const Text(
@@ -50,7 +50,7 @@ class LoginState extends State {
                 leading: const Icon(Icons.home, size: 15),
                 title: const Text('Página Inicial'),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Pagamento()));
                 },
               )
             ],
@@ -80,9 +80,9 @@ class LoginState extends State {
                             keyboardType: TextInputType.emailAddress,
                             decoration: const InputDecoration(
                                 labelText: 'Email',
-                                labelStyle: TextStyle(color: Colors.black),
+                                labelStyle: TextStyle(color: Colors.pink),
                                 hintText: 'Digite seu email',
-                                hintStyle: TextStyle(color: Colors.black),
+                                hintStyle: TextStyle(color: Colors.pinkAccent),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                         color:
@@ -121,9 +121,9 @@ class LoginState extends State {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(40))),
                             labelText: 'Senha',
-                            labelStyle: TextStyle(color: Colors.black),
+                            labelStyle: TextStyle(color: Colors.pink),
                             hintText: 'Digite Sua Senha',
-                            hintStyle: TextStyle(color: Colors.black),
+                            hintStyle: TextStyle(color: Colors.pinkAccent),
                           ),
                         ),
                         const SizedBox(height: 15),
